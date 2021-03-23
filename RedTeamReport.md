@@ -140,7 +140,7 @@ The following vulnerabilities were identified on each target:
   - Insecure SQL Password Storage
   - Improper sudoers file configuration
 
-Results of an nmap vulnerability scan: `nmap -sV --script=vulners -v 192.168.1.110
+Results of an nmap vulnerability scan: `nmap -sV --script=vulners -v 192.168.1.110`
 ```bash
 | vulners:
 |	cpe:/a: openbsd: openssh:6.7p1:
@@ -237,10 +237,11 @@ The Red Team was able to penetrate `Target 1` and retrieve the following confide
     - **Enumerable users**
       - WordPress allows an attacker to enumerate valid usernames in a brute force attack.
       - Command run: `wpscan --url 192.168.1.110/wordpress --enumerate u`
+![](Resources/wpscan1.png)
   - `flag2.txt`: flag2{fc3fd58dcdad9ab23faca6e9a36e581c}
     - **Brute forceable SSH password**
       - The password for user michael is weak and easily brute forced
-      - `hydra -l michael -P /usr/share/wordlists/rockyou.txt -s 22 -f -vv 192.168.1.110 ssh`
+      - `hydra -l michael -P /usr/share/wordlists/rockyou.txt -s 22 -f 192.168.1.110 ssh`
   - `flag3.txt`: flag3{afc01ab56b5091e7dccf93122770cd2}
     - **Insecure Password Storage**
       - The password to the Wordpress server's SQL database is stored in cleartext in wp-config.php
