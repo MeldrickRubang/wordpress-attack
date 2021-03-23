@@ -47,17 +47,17 @@ Alert 1 is implemented as follows:
 
 #### Alert 2: HTTP Request Size Monitor
 Alert 2 is implemented as follows:
-  - **Metric**: TODO
-  - **Threshold**: TODO
-  - **Vulnerability Mitigated**: TODO
-  - **Reliability**: TODO: Does this alert generate lots of false positives/false negatives? Rate as low, medium, or high reliability.
+  - **Metric**: The number of bytes requests sent over the past minute
+  - **Threshold**: The receipt of more than 3500 bytes in requests in the span of 1 minute
+  - **Vulnerability Mitigated**: Brute foce attacks
+  - **Reliability**: Medium reliability: A period of abnormally high legitimate traffic would trigger this alert.
 
 #### Alert 3: CPU Usage Monitor
 Alert 3 is implemented as follows:
-  - **Metric**: TODO
-  - **Threshold**: TODO
-  - **Vulnerability Mitigated**: TODO
-  - **Reliability**: TODO: Does this alert generate lots of false positives/false negatives? Rate as low, medium, or high reliability.
+  - **Metric**: The  percentage of CPU power being used
+  - **Threshold**: 50%
+  - **Vulnerability Mitigated**: Unauthorized script execution
+  - **Reliability**: Medium: CPU-intensive legitimate activities, such as a developer testing a legitimate script, would trigger this alert.
 
 ### Suggestions for Going Further (Optional)
 _TODO_: 
